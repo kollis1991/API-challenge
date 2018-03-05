@@ -10,10 +10,20 @@ var map;
           'draggable' : false,
           'scrollwheel' : false
         });
+        var popupContent = 'H+ Sport<br>'
+            popupContent += '1750 Vine Street<br>'
+            popupContent += 'Los Angeles California'
+
+        var infowindow = new google.maps.InfoWindow({
+          content: popupContent
+        });
         
         var marker = new google.maps.Marker({
           'position': storeLocation,
           'map': map,
           'title': 'hplus sport in Los Angeles (actually Capitol Records in real life)'
+        });
+        marker.addListener('click', function() {
+          infowindow.open(map, marker);
         });
       }
